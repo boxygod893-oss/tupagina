@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Requisitos</title>
+
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    button:disabled { opacity: 0.5; }
+  </style>
+</head>
+
+<body>
+
+<h3>Antes de continuar</h3>
+
+<label><input type="checkbox" id="r1"> Acepto términos</label><br>
+<label><input type="checkbox" id="r2"> Soy mayor de edad</label><br><br>
+
+<button id="btn" disabled>Continuar</button>
+
+<script>
+const btn = document.getElementById("btn");
+const checks = document.querySelectorAll("input[type=checkbox]");
+
+checks.forEach(c => c.addEventListener("change", () => {
+  btn.disabled = ![...checks].every(x => x.checked);
+}));
+
+btn.onclick = () => {
+  location.href = "final.html";
+};
+</script>
+
+</body>
+</html>
